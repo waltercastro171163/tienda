@@ -1,0 +1,70 @@
+<app-menu></app-menu>
+<div class="container">
+
+  <div class="my-3">
+    <div class="row">
+            <div class="col-lg-6 my-2">
+              <h5 class="card-title">Filtro de productos</h5>
+              <div class="input-group date" id="datetimepicker-minimum" data-target-input="nearest">
+                  <input (change)="textFiltro($event)" type="text" placeholder="Filtra por nombre" class="form-control datetimepicker-input">
+                  <div class="input-group-append">
+                      <button type="button" (click)="filtrar()" class="input-group-text"><i class="bi bi-search"></i></button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-6 col-lg-6 my-2">
+            <h5 class="card-title" style="opacity: 0.0">Opciones de productos</h5>
+            <!-- <div class="btn-group" role="group">
+              <button type="button" (click)="obtenerCategoria('all')" class="btn btn-primary">All</button>
+              <button type="button" (click)="obtenerCategoria('futbol')" class="btn btn-primary">Futbol</button>
+              <button type="button" (click)="obtenerCategoria('tenis-de-mesa')" class="btn btn-primary">Tenis de mesa</button>
+              <button type="button" (click)="obtenerCategoria('natacion')" class="btn btn-primary">Natacion</button>
+            </div> -->
+            <button  routerLink="/new-producto" id="btnGroupDrop1" type="button" class="btn btn-success ms-2">
+              Nuevo producto +
+            </button>
+        </div>
+
+    </div>
+    <div class="table-responsive-sm">
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">titulo</th>
+            <th scope="col">descripción</th>
+            <th scope="col">imagen</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+
+            <td>{{producto._id}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.descripcion}}</td>
+
+            <td>
+              <img [src]="producto.img" width="48" height="48" class="rounded-circle mr-2 object-cover" alt="Avatar">
+            </td>
+
+            <td>
+              <button [routerLink]="['/update-producto', producto._id]" class="btn btn-warning me-1 my-1" style="width: 78px !important;">Editar</button>
+              <button (click)="eliminar(producto._id)"  class="btn btn-danger me-1 my-1"style="width: 78px !important;">Eliminar</button>
+            </td>
+          </tr>
+          <tr *ngIf="productos.length === 0" class="text-center">
+            <div class="alert alert-warning w-100" role="alert">
+              Productos no encontrado
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+
+
+  </div>
+  <app-footer></app-footer>

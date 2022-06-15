@@ -1,0 +1,93 @@
+<app-menu></app-menu>
+<div class="container my-2">
+  <div class="container-fluid">
+      <div class="header">
+          <h1 class="header-title">
+            Actualizar Producto
+          </h1>
+      </div>
+      <div class="row">
+
+          <div class="col-12 col-xl-8">
+              <div class="card">
+                  <div class="card-header">
+                      <h5 class="card-title">Complete el formulario</h5>
+                      <h6 class="card-subtitle text-muted">Productos.</h6>
+                  </div>
+                  <div class="card-body">
+                    <form [formGroup]="updateProducto" (ngSubmit)="onSubmit()">
+                          <div class="row">
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label class="form-label">Titulo del producto</label>
+                                      <input type="text" class="form-control" formControlName="nombre" placeholder="Ingrese el titulo del producto" name="titulo" required>
+                                  </div>
+                                  <small *ngIf="isValid('nombre')" class="text-danger">El campo es obligatorio</small>
+                              </div>
+                              <div class="col-lg-2">
+                                  <div class="form-group">
+                                      <label class="form-label">Precio</label>
+                                      <input type="number" class="form-control"  formControlName="precio" placeholder="$0"  required>
+                                  </div>
+                                  <small *ngIf="isValid('precio')" class="text-danger">El campo es obligatorio</small>
+                              </div>
+                              <div class="col-lg-2">
+                                  <label class="form-label">Cantidad</label>
+                                  <input type="number" class="form-control" formControlName="stock" placeholder="0"   required>
+                              </div>
+                              <small *ngIf="isValid('stock')" class="text-danger">El campo es obligatorio</small>
+                          </div>
+                          <div class="form-group">
+                              <label class="form-label">Descripcion</label>
+                              <textarea class="form-control" formControlName="descripcion" placeholder="Breve descripcion"></textarea>
+                          </div>
+                          <small *ngIf="isValid('descripcion')" class="text-danger">El campo es obligatorio</small>
+
+                          <div class="row">
+                              <div class="col-lg-4">
+                                  <div class="form-group">
+                                      <label class="form-label">Categoria</label>
+                                      <select class="form-control" formControlName="categoria" required name="idcategoria">
+                                          <option disabled>Elige una categoria</option>
+                                          <option value="futbol">Futbol</option>
+                                          <option value="tenis-de-mesa">Tenis de mesa</option>
+                                          <option value="natacion">Natacion</option>
+                                      </select>
+                                  </div>
+                                  <small *ngIf="isValid('categoria')" class="text-danger">El campo es obligatorio</small>
+
+                              </div>
+                          </div>
+
+                          <div *ngIf="loading" class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                          <button *ngIf="!loading" type="submit" class="btn btn-primary my-2">Registrar</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-xl-4">
+              <div class="card">
+                  <div class="card-header">
+                    Link de imagen
+                  </div>
+                  <div class="card-body">
+                      <div class="text-center">
+                          <img alt="Chris Wood" [src]="imageSrc" class="rounded-circle img-responsive mt-2" width="128" height="128">
+                          <div class="mt-2">
+                            <input
+                              (change)="upload($event)"
+                              class="btn btn-primary"
+                              type="file" style="width: 100% !important;">
+                          </div>
+                          <small>For best results, use an image at least 128px by 128px in .jpg
+                          format</small>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

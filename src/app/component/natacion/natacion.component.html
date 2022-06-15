@@ -1,0 +1,41 @@
+
+<app-menu></app-menu>
+
+<div class="card bg-dark text-white mb-3">
+    <img
+        src="https://media.revistagq.com/photos/5d15d8da274222b14be3327b/16:9/w_2560%2Cc_limit/gentrit-sylejmani-JjUyjE-oEbM-unsplash.jpg"
+        class="card-img" alt="...">
+    <div class="card-img-overlay">
+
+    </div>
+</div>
+
+
+
+<h5 class="fs-2 text-center mb-3">Productos de excelente calidad</h5>
+
+<div class="justify-content-md-between" class="m">
+
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div *ngFor="let item of productos" class="col">
+            <div class="card">
+                <img
+                    [src]="item.img"
+                    class="card-img-top" alt="...">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ item.nombre }}</h5>
+                    <p class="card-text">{{ item.descripcion}}
+                    </p>
+                    <h3>$ {{ item.precio | number }}</h3>
+                    <button type="button" class="btn btn-primary" (click)="addCart(item)">Añadir a carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<app-footer></app-footer>

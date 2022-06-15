@@ -1,0 +1,13 @@
+
+/* .menu{
+
+    font-size: 16px;
+} */
+
+.cart{
+  position: relative;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: larger;
+  margin-right: 10px;
+}
