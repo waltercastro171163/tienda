@@ -30,6 +30,7 @@ import { NewProductoComponent } from './component/new-producto/new-producto.comp
 import { ProductosComponent } from './component/productos/productos.component';
 import { UpdateProductoComponent } from './component/update-producto/update-producto.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { ContactoComponent } from './component/contacto/contacto.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { CheckoutComponent } from './component/checkout/checkout.component';
     ProductosComponent,
     UpdateProductoComponent,
     CheckoutComponent,
+    ContactoComponent,
 
 
   ],

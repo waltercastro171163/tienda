@@ -13,6 +13,7 @@ import { NewProductoComponent } from './component/new-producto/new-producto.comp
 import { ProductosComponent } from './component/productos/productos.component';
 import { UpdateProductoComponent } from './component/update-producto/update-producto.component';
 import { CheckoutComponent } from './component/checkout/checkout.component';
+import { ContactoComponent } from './component/contacto/contacto.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
 {path: 'productos', component:ProductosComponent},
 {path: 'update-producto/:id', component:UpdateProductoComponent},
 {path: 'checkout', component: CheckoutComponent},
+{path: 'contacto', component: ContactoComponent},
 
 
 
